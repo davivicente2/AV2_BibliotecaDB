@@ -1,0 +1,49 @@
+﻿@model List<AV2_Biblioteca_Final.Model.Models.Autores
+>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Autores</h1>
+
+<p>
+    <a asp-controller="Autores" asp-action="Create">Adicionar um novo autor</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].DataNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Nacionalidade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataNascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nacionalidade)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.AutorId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.AutorId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AutorId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
